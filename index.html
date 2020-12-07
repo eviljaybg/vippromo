@@ -1,7 +1,9 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700' rel='stylesheet' type='text/css'>
   
   <title>Scratch Card</title>
   <style type="text/css">
@@ -29,17 +31,16 @@ body {
   user-select: none;
   width:100%;
 }
-  /* Extra Small Devices, Phones */ 
-          @media only screen and (max-width : 480px) {
-            .scratchpad {width:400px;height:396px;}
-            .scratch-container {width:400px !important;}
-          }
+@media only screen and (max-width : 480px) {
+  .scratchpad {width:400px;height:396px;}
+  .scratch-container {width:400px !important;}
+}
 
-          /* Custom, iPhone Retina */ 
-          @media only screen and (max-width : 320px) {
-            .scratchpad {width:290px;height:287px;}
-            .scratch-container {width:290px !important;}
-          }
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+  .scratchpad {width:290px;height:287px;}
+  .scratch-container {width:290px !important;}
+}
 .promo-container {
 	background:#FFF;
 	border-radius:5px;
@@ -72,16 +73,16 @@ body {
 </head>
 <body>
 <div class="scratch-container">
-<div id="promo" class="scratchpad" style="position: relative; cursor: url(&quot;https://jennamolby.com/scratch-and-win/images/coin1.png&quot;) 5 5, default;"><img src="//jennamolby.com/scratch-and-win/images/500.png" style="position: absolute; width: 100%; height: 100%; display: block;"><canvas width="860" height="850" style="position: absolute; width: 100%; height: 100%;"></canvas></div>
+  <div id="promo" class="scratchpad"></div>
 </div>
-<div class="promo-container" style="">
-  <div class="promo-code">Your code is: SCRATCH500</div>
-  <a href="https://jennamolby.com" target="_blank" class="btn">Register Now</a>
+<div class="promo-container" style="display:none;">
+  <div class="promo-code"></div>
+  <a href="htttp://jennamolby.com" target="_blank" class="btn">Register Now</a>
 </div>
 
 
-<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/scratch-and-win/js/wScratchPad.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="./scratch-and-win/js/wScratchPad.min.js"></script>
 
 <script type="text/javascript">
 
@@ -99,13 +100,19 @@ if (selectBG == bg1) {
     var promoCode = '';
   }
 $('#promo').wScratchPad({
-    size        : 70,       
+    // the size of the eraser
+    size        : 70,    
+    // the randomized scratch image   
     bg:  selectBG,
+    // give real-time updates
     realtime    : true, 
-    fg: '//jennamolby.com/scratch-and-win/images/overlay.png',
-    'cursor': 'url("//jennamolby.com/scratch-and-win/images/coin1.png") 5 5, default',
-
+    // The overlay image
+    fg: 'https://jennamolby.com/scratch-and-win/images/overlay.png',
+    // The cursor (coin) image
+    'cursor': 'url("https://jennamolby.com/scratch-and-win/images/coin1.png") 5 5, default',
+    
     scratchMove: function (e, percent) {
+        // Show the plain-text promo code and call-to-action when the scratch area is 50% scratched
         if ((percent > 50) && (promoCode != '')) {
           $('.promo-container').show();
           $('body').removeClass('not-selectable');
@@ -116,5 +123,5 @@ $('#promo').wScratchPad({
 </script>
       
 
-
-</body></html>
+</body>
+</html>
