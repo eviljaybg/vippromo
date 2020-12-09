@@ -13,11 +13,18 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-.scratchpad{
+.scratchpad1,.scratchpad2,.scratchpad3,.scratchpad4,.scratchpad5,.scratchpad6,.scratchpad7,.scratchpad8,.scratchpad9{
   width: 450px;
   height: 445px;
   border: solid 10px #FFFFFF;
+  /*margin:0 auto;*/
+  background:url('./overlay.png');
+  background-size:100%;
+  float:left;
+}
+.alone{
   margin:0 auto;
+  float:none!important;
 }
 body {
     background:#efefef;
@@ -72,24 +79,74 @@ body {
 
 </head>
 <body>
-<div class="scratch-container">
-  <div id="promo" class="scratchpad"></div>
+<div class="scratch-container1">
+<div id="promo" class="scratchpad1"></div>
 </div>
-<div class="promo-container" style="display:none;">
-  <div class="promo-code"></div>
-  <a href="htttp://jennamolby.com" target="_blank" class="btn">Register Now</a>
+ 
+ 
+	 
+<div class="scratch-container2"><div id="promo2" class="scratchpad2"></div></div>
+ 
+ 
+<div class="scratch-container3"><div  id="promo3"class="scratchpad3"></div></div>
+ 
+<div class="scratch-container4"><div  id="promo4"class="scratchpad4"></div></div>
+<div class="scratch-container5"><div  id="promo5"class="scratchpad5"></div></div>
+<div class="scratch-container6"><div  id="promo6"class="scratchpad6"></div></div>
+<div class="scratch-container7"><div  id="promo7"class="scratchpad7"></div></div>
+<div class="scratch-container8"><div  id="promo8"class="scratchpad8"></div></div>
+<div class="scratch-container9"><div  id="promo9"class="scratchpad9"></div></div>
+ 
+ 
 </div>
-
-
 <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="./scratch-and-win/js/wScratchPad.min.js"></script>
+<script type="text/javascript" src="./wScratchPad.min.js"></script>
+
+<script type="text/javascript">
+  $( "#promo" ).click(function() {
+   $( " .scratchpad1").addClass("alone");$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+  $( "#promo2" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").addClass("alone");$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo3" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").addClass("alone");$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo4" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").addClass("alone");$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo5" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").addClass("alone");$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo6" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").addClass("alone");$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo7" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").addClass("alone");$(".scratch-container8").hide(); $(".scratch-container9").hide();
+});
+ $( "#promo8" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").addClass("alone"); $(".scratch-container9").hide();
+});
+ $( "#promo9" ).click(function() {
+   $( " .scratchpad1").hide();$(".scratch-container2").hide();$(".scratch-container3").hide();$(".scratch-container4").hide();$(".scratch-container5").hide();$(".scratch-container6").hide();$(".scratch-container7").hide();$(".scratch-container8").hide(); $(".scratch-container9").addClass("alone");
+});
+
+</script>
+
+
+
+
+
+ 
+
+
 
 <script type="text/javascript">
 
 var promoCode = '';
-var bg1 = './scratch-and-win/images/400.png';
-var bg2 = './scratch-and-win/images/500.png';
-var bg3 = './scratch-and-win/images/sorry.png';
+var bg1 = './400.png';
+var bg2 = './500.png';
+var bg3 = './sorry.png';
 var bgArray= [ bg1, bg2, bg3 ],
 selectBG = bgArray[Math.floor(Math.random() * bgArray.length)];
 if (selectBG == bg1) {
@@ -100,19 +157,133 @@ if (selectBG == bg1) {
     var promoCode = '';
   }
 $('#promo').wScratchPad({
-    // the size of the eraser
-    size        : 70,    
-    // the randomized scratch image   
+    size        : 70,       
     bg:  selectBG,
-    // give real-time updates
     realtime    : true, 
-    // The overlay image
-    fg: './scratch-and-win/images/overlay.png',
-    // The cursor (coin) image
-    'cursor': 'url("./scratch-and-win/images/coin1.png") 5 5, default',
-    
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
     scratchMove: function (e, percent) {
-        // Show the plain-text promo code and call-to-action when the scratch area is 50% scratched
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container1').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code1').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo2').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container2').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code2').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo3').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container3').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code3').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo4').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo5').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo6').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo7').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo8').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('Your code is: ' + promoCode);
+        }
+      }
+ });
+$('#promo9').wScratchPad({
+    size        : 70,       
+    bg:  selectBG,
+    realtime    : true, 
+    fg: './overlay.png',
+    'cursor': 'url("./coin1.png") 5 5, default',
+
+    scratchMove: function (e, percent) {
         if ((percent > 50) && (promoCode != '')) {
           $('.promo-container').show();
           $('body').removeClass('not-selectable');
